@@ -48,7 +48,11 @@ public class Result<E> {
         return Result.<E>builder().code(CODE_SUCCESS).message(message).total(total).data(data).build();
     }
 
-    public static <T> Result<T> partialSuccess(String msg, T data) {
+    public static <E> Result<E> partialSuccess(String msg, E data) {
+        return error(3, msg, data);
+    }
+
+    public static <E> Result<E> partialSuccess(String msg, List<E> data) {
         return error(3, msg, data);
     }
 
